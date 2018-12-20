@@ -26,7 +26,7 @@ const client = new Discord.Client();
     client.on('message', message => {
             if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('b-bc')){
+if (message.content.startsWith('k-bc')){
  if (message.author.id !== '386247167532072971') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
  if(!message.author.id === '386247167532072971') return;
 message.channel.sendMessage('جار ارسال الرسالة |✅')
@@ -43,7 +43,7 @@ m.sendMessage(args)
 
 
   client.on('message', message => {
-    if(message.content == 'b-bans'){
+    if(message.content == 'k-bans'){
         message.guild.fetchBans().then(bans => {
             bans.forEach(user => {
                message.channel.send('\`#\` <@'+ user.id + '>');
@@ -58,7 +58,7 @@ m.sendMessage(args)
 
 
  client.on('message', message => {
-if(message.content.startsWith('b-discrim') ) {
+if(message.content.startsWith('k-discrim') ) {
      if(!message.channel.guild) return message.reply('** This command only for servers **')
           var args = message.content.split(" ").slice(1);
     let sent = 0
@@ -78,7 +78,7 @@ client.users.filter(u => u.discriminator == args[0]).forEach(u => {
 })
 }
 }
-if(message.content ===('b-discrim') ) {
+if(message.content ===('k-discrim') ) {
      if(!message.channel.guild) return message.reply('** This command only for servers **')
   let sent = 0
     let count = 1;
@@ -102,7 +102,7 @@ client.users.filter(u => u.discriminator == message.author.discriminator).forEac
 
 
   client.on('message',async message => {
-if(message.content === 'b-unbanall') {
+if(message.content === 'k-unbanall') {
 message.guild.fetchBans().then(ba => {
 ba.forEach(ns => {
 message.guild.unban(ns);
@@ -126,14 +126,7 @@ client.on('guildMemberRemove', member => {
   
 
   
-  
-  client.on('guildMemberAdd', (member) => {
-let channel = client.channels.get('476528889557024799')
-if(member.user.bot) {
-channel.send(`${member} ولكم يا عمو البوت`)
-}
-}) 
-  
+ 
  
  
  
@@ -200,7 +193,7 @@ channel.send(`${member} ولكم يا عمو البوت`)
 
  client.on('message', message => {
         var  user = message.mentions.users.first() || message.author;
-    if (message.content.startsWith("b-avatar")) {
+    if (message.content.startsWith("k-avatar")) {
 message.channel.send(`This avatar For ${user} link : ${user.avatarURL}`);
 }
 });
@@ -211,10 +204,10 @@ message.channel.send(`This avatar For ${user} link : ${user.avatarURL}`);
 
 
   client.on('message', message => {
-        var prefix = "b-"
+        var prefix = "k-"
 var args = message.content.split(" ").slice(1);
 var time = args[1];
-  if(message.content.startsWith(prefix + 'vc')) {
+  if(message.content.startsWith('vc')) {
     if(!args[0]) return message.reply('` اختار اسم الروم `');
     if(!time) return message.reply("**يرجى تحديد وقت للروم **❌");  
     if(!args[2]) return message.reply(` حدد نوع الروم \nvoice لعمل الروم صوتي \ntext لعمل شات كتابي `)
@@ -235,7 +228,7 @@ message.channel.send('` لقد انتهي وقت الروم الموقت `')
  
 
 client.on('message', function(msg) {
-    const prefix = 'b-'
+    const prefix = 'k-'
     if(msg.content.startsWith (prefix  + 'server')) {
       let embed = new Discord.RichEmbed()
       .setColor('RANDOM')
@@ -287,7 +280,7 @@ client.on('message', message => {
  
  
 client.on('message', message => {
-    if (message.content === "b-createroles") {
+    if (message.content === "k-createroles") {
     if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
             if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`**${message.author.username} You Dont Have** ``MANAGE_ROLES`` **Premission**`);
 
@@ -315,7 +308,7 @@ message.channel.sendMessage('**الرجاء الانتظار ريث ما يتم 
 
 
 client.on('message', message => {
-    if (message.content === "b-createrooms") {
+    if (message.content === "k-createrooms") {
     if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send(`**${message.author.username} You Dont Have** ``MANAGE_CHANNELS`` **Premission**`);
 
@@ -414,7 +407,7 @@ client.on('voiceStateUpdate', (oldM, newM) => {
  
  
 client.on('message',message =>{
-    var prefix = "b-";
+    var prefix = "k-";
     if(message.content.startsWith(prefix + 'top')) {
   message.guild.fetchInvites().then(i =>{
   var invites = [];
@@ -453,7 +446,7 @@ client.on('message',message =>{
 
 client.on('message', message => {
     if (message.author.bot) return;
-     if (message.content === "b-help") {
+     if (message.content === "k-help") {
   let embed = new Discord.RichEmbed()
           .setAuthor(message.author.username, message.author.avatarURL)
            .setThumbnail(message.author.avatarURL)
@@ -463,54 +456,49 @@ client.on('message', message => {
 :white_small_square:  ( اوامر الادارة***
 **
 :small_orange_diamond:   البوت يكتب الي ��نت تكتبه في صورة
-b-say
-l_orange_diamond:   لمسح الشات
-b-clear
+k-say
+:l_orange_diamond:   لمسح الشات
+k-clear
 :small_orange_diamond:   للباند
-b-ban
+k-ban
 :small_orange_diamond:   للطرد
-b-kick
+k-kick
 :small_orange_diamond:   للارسال لاعضاء السيرفر بشكل مطور
-b-bc
+k-bc
 :small_blue_diamond: ل فك الباند عن الجميع 
-b-unbanall
+k-unbanall
 :small_blue_diamond: ل روية جميع المبندين في سرفرك 
-b-bans
+k-bans
 ----
 **
 ***
 :white_small_square: ( الاوامر العامة***
 **
 :small_blue_diamond:  للابلغ عن شخص
-b-report
+k-report
 :small_blue_diamond:  لعرض التاريخ والوقت 
-b-date
+k-date
 :small_blue_diamond:  معلومات السيرفر
-b-server
+k-server
 :small_blue_diamond: ل روية عدد دعوات الشخص
-b-inv
+k-inv
 :small_blue_diamond: ل روية توب النفايتس
-b-top
+k-top
 :small_blue_diamond: ل روية حالات الاعضاء
-b-mb
+k-mb
 :small_blue_diamond: تعريف ل البوت 
-b-bot
+k-bot
 :small_blue_diamond: ل الاقتراح اي شي 
 اقتراح
 :small_blue_diamond: ل عرض صورة الشخص 
-b-avatar
+k-avatar
 :small_blue_diamond: ل عمل رومات جاهزه
-b-createrooms
+k-createrooms
 :small_blue_diamond: ل عمل رتب جاهزه
-b-createrools
+k-createrools
 :small_blue_diamond: ل عمل روم مواقت مع اسمه وا الوقت
-b-vc
+k-vc
  ----
-رابط السبورت البوت
- https://discord.gg/T26nWg
-----------
-رابط دعوة البوت
-https://discordapp.com/api/oauth2/authorize?client_id=476788319833817088&permissions=8&scope=bot
 **
 `)
 .setColor('RANDOM')
@@ -798,7 +786,7 @@ client.on('message', message => {
 
 client.on('message', msg => {
       if(!msg.channel.guild) return;
-    if(msg.content.startsWith ('b-help')) {
+    if(msg.content.startsWith ('k-help')) {
     msg.reply('**📩 شيك علي الخاص**');
   }
 }); 
@@ -806,7 +794,7 @@ client.on('message', msg => {
 
 
   client.on('message', message => {
-   if(message.content.startsWith("b-inv")) {
+   if(message.content.startsWith("k-inv")) {
     message.guild.fetchInvites().then(invs => {
       let user = message.mentions.users.first() || message.author
       let personalInvites = invs.filter(i => i.inviter.id === user.id);
@@ -822,7 +810,7 @@ client.on('message', message =>{
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
-    let prefix = 'b-';
+    let prefix = 'k-';
      
     if(cmd === `${prefix}report`){
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
@@ -854,7 +842,7 @@ client.on('message', message =>{
   
   
   client.on('message',async message => {
-    if(message.content.startsWith("b-restart")) {
+    if(message.content.startsWith("k-restart")) {
         if(message.author.id !== "386247167532072971") return message.reply('You aren\'t the bot owner.');
         message.channel.send('**Restarting.**').then(msg => {
             setTimeout(() => {
@@ -880,7 +868,7 @@ client.on('message', message => {
 
      if (message.author.bot) return;
     if (!message.channel.guild) return;
-    if (message.content.startsWith('b-mb')) {
+    if (message.content.startsWith('k-mb')) {
         if (!message.channel.guild) return;
         let embed = new Discord.RichEmbed()
             .setColor('RANDOM')
@@ -914,7 +902,7 @@ client.on("guildMemberAdd", member => {
 
 
 client.on('message', message => {
-var prefix = "b-";
+var prefix = "k-";
        if(message.content === prefix + "mutechannel") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
 
@@ -946,7 +934,7 @@ var prefix = "b-";
 
 
 client.on('message', message => {
-    var prefix = "b-"
+    var prefix = "k-"
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -984,25 +972,12 @@ client.on('message', message => {
 
 
 
-client.on("message", message => {
-    var prefix = "b-"
-    if (!message.content.startsWith(prefix)) return;
-      let command = message.content.split(" ")[0];
-      command = command.slice(prefix.length);
-        if(command === "skin") {
-                const args = message.content.split(" ").slice(1).join(" ")
-        if (!args) return message.channel.send("** Type your skin name **");
-        const image = new Discord.Attachment(`https://visage.surgeplay.com/full/256/${args}`, "skin.png");
-    message.channel.send(image)
-        }
-    });
-
 
 
 	
 	
 client.on('message', message => {
-    if (message.content.startsWith("b-bot")) {
+    if (message.content.startsWith("k-bot")) {
     message.channel.send({
         embed: new Discord.RichEmbed()
             .setAuthor(client.user.username,client.user.avatarURL)
@@ -1016,7 +991,7 @@ client.on('message', message => {
             .addField('``Users``' ,`[ ${client.users.size} ]` , true)
             .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
             .addField('``My ID``' , `[ ${client.user.id} ]` , true)
-                  .addField('``My Prefix``' , `[ b- ]` , true)
+                  .addField('``My Prefix``' , `[ k- ]` , true)
                   .addField('``My Language``' , `[ Java Script ]` , true)
                          
     })
@@ -1029,7 +1004,7 @@ client.on('message', message => {
 client.on('message', msg => {
     if(msg.author.bot) return;
     
-    if(msg.content === 'b-sr') {
+    if(msg.content === 'k-sr') {
       client.guilds.forEach(g => {
         
         let l = g.id
@@ -1058,7 +1033,7 @@ client.on('message', msg => {
  
 client.on('message', message =>{
     if (message.author.bot) return;
-    if(message.content == "b-rols"){
+    if(message.content == "k-rols"){
         var roles = '',
         ros=message.guild.roles.size,
         role = [];
@@ -1077,7 +1052,7 @@ client.on('message', message =>{
  
  client.on('message', message => {
    if(!message.channel.guild) return;
-if(message.content.startsWith('b-clear')) {
+if(message.content.startsWith('k-clear')) {
 if(!message.channel.guild) return message.channel.send('**This Command is Just For Servers**').then(m => m.delete(5000));
 if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**You Do not have permission** `ADMINISTRATOR`' );
 let args = message.content.split(" ").join(" ").slice(2 + 'prefix.length');
@@ -1122,7 +1097,7 @@ msg.delete();
  
 client.on('message', message => {
                                 if(!message.channel.guild) return;
-                        if (message.content.startsWith('b-ping')) {
+                        if (message.content.startsWith('k-ping')) {
                             if(!message.channel.guild) return;
                             var msg = `${Date.now() - message.createdTimestamp}`
                             var api = `${Math.round(client.ping)}`
@@ -1140,9 +1115,9 @@ client.on('message', message => {
  
 
  
-const perfix = 'b-';
+const perfix = 'k-';
 client.on('message', msg => {
- if (msg.content.startsWith('b-send')) {
+ if (msg.content.startsWith('k-send')) {
       let args = msg.content.split(' ').slice(1)
       if (!args[0]) return msg.reply(`**منشن الشخص اولا**`)
       if (!args[1]) return msg.reply(`**ما هي الرساله المطلوب ارسالها**`)
@@ -1160,7 +1135,7 @@ client.on('message', msg => {
  
 
 
-var prefix = "b-";
+var prefix = "k-";
 client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
   const verifed = ["386247167532072971"];
@@ -1210,7 +1185,7 @@ client.on('message', function(message) {
             text = co.first().content
 
               message.channel.send(`تم حفظ اقتراحك الرجاء انتضار الرد من قبل الاداره`)
-                client.channels.get("475291610385481728").send(`${message.author.username}'s sug => ${text}`)
+                client.channels.get("525372263436910604").send(`${message.author.username}'s sug => ${text}`)
 
               })
             }
@@ -1222,7 +1197,7 @@ client.on('message', function(message) {
 
   client.on('message', message => {
   if (message.author.codes) return;
-  if (!message.content.startsWith('b-')) return;
+  if (!message.content.startsWith('k-')) return;
 
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
@@ -1258,7 +1233,7 @@ message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! 
  
   let command = message.content.split(" ")[0];
  
-  if (command === "b-unmute") { // حط البرفكس حقت بوتك قبل الامر
+  if (command === "k-unmute") { // حط البرفكس حقت بوتك قبل الامر
         if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'mute-log');
@@ -1297,7 +1272,7 @@ message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! 
 
 
   client.on('message', ReBeeL => {
-  var prefix = "b-";
+  var prefix = "k-";
     if(ReBeeL.author.bot) return;
       if(ReBeeL.content.startsWith(prefix + "bcowner")) {
         let args = ReBeeL.content.split(" ").slice(1);
@@ -1325,28 +1300,7 @@ ${args}
  
  
  
-   client.on('message', message => {
-  if (true) {
-if (message.content === 'invite') {
-      message.author.send('https://discordapp.com/api/oauth2/authorize?client_id=476788319833817088&permissions=8&scope=bot').catch(e => console.log(e.stack));
 
-    }
-   } 
-  });
-
-
-client.on('message', message => {
-     if (message.content === "invite") {
-     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#9B59B6")
-  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
-     
-     
-     
-  message.channel.sendEmbed(embed);
-    }
-});
   
  
  
@@ -1355,7 +1309,7 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (message.author.bot) return;
-  if (!message.content.startsWith('b-')) return;
+  if (!message.content.startsWith('k-')) return;
 
   let command = message.content.split(" ")[0];
   command = command.slice(prefix.length);
@@ -1372,7 +1326,7 @@ client.on('message', message => {
  
  
  client.on('message', message => {
-    var prefix = "b-"
+    var prefix = "k-"
     if (message.content === prefix + "date") {
         var currentTime = new Date(),
             السنة = currentTime.getFullYear(),
@@ -1388,7 +1342,7 @@ client.on('message', message => {
  
  
 client.on("message",function(message) {
-    if(message.content.startsWith('b-uptime')) {
+    if(message.content.startsWith('k-uptime')) {
         let uptime = client.uptime;
 
     let days = 0;
@@ -1447,7 +1401,7 @@ client.on('message', message => {
     if (message.author.bot) return;
             if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('b-bcall')){
+if (message.content.startsWith('k-bcall')){
  if(!message.author.id === 'الايدي حقك') return;
 message.channel.sendMessage('جار ارسال الرسالة |✅')
 client.users.forEach(m =>{
@@ -1455,4 +1409,7 @@ m.sendMessage(args)
 })
 }
 }) 
+
+
+
 client.login(process.env.BOT_TOKEN);
