@@ -4,6 +4,57 @@ const client = new Discord.Client();
 
 
 
+client.on('ready', function(){
+    var ms = 7000;  //السرعه
+    var setGame = ["k-help"];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i]);
+    }, ms);
+ 
+ 
+ 
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+client.on('message',function(message) {
+  if(!message.channel.guild) return undefined;
+  const swearWords = ["كس امك","انيك امك","قحبه","خنيث","ازغبك","انيكك","كس","منيوك","عرس","اعرسك","مص","مص زبي","جرار","ولد العاهره"];
+  if (swearWords.some(word => message.content.includes(word)) ) {
+    message.delete()
+    message.reply("ممنوع السب"); 
+  }
+});
+
+
+
+
+
+
+
+
+
+
 
  client.on("message", message => {
     if (message.content.match(/([A-Z0-9]|-|_){24}\.([A-Z0-9]|-|_){6}\.([A-Z0-9]|-|_){27}|mfa\.([A-Z0-9]|-|_){84}/gi)) {
@@ -251,36 +302,30 @@ client.on('message', function(msg) {
   
   
 client.on('message', message => {
-    if (message.content.startsWith("رابط")) {
+    if (message.content.startsWith("رابطط")) {
 
   message.channel.createInvite({
         thing: true,
-        maxUses: 1000000,
+        maxUses: 100,
         maxAge: 86400
     }).then(invite =>
       message.author.sendMessage(invite.url)
     )
-    const embed = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .setDescription(" ✅    تم ارسال الرابط على الخاص  ")
-      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
-              const Embed11 = new Discord.RichEmbed()
-        .setColor("RANDOM")
-                .setAuthor(message.guild.name, message.guild.iconURL)
-        .setDescription(`
-**
--${message.guild.name}  Link
-**`)
-      message.author.sendEmbed(Embed11)
+  message.channel.send("**:link:.تم ارسال الرابط برسالة خاصة**")
+
+message.author.send(`**مدة الرابط : يـوم
+عدد استخدامات الرابط : 100**`)
+
+
     }
 });
- 
+
 
 
  
  
 client.on('message', message => {
-    if (message.content === "k-createroles") {
+    if (message.content === "k-createrools") {
     if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
             if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`**${message.author.username} You Dont Have** ``MANAGE_ROLES`` **Premission**`);
 
@@ -827,8 +872,8 @@ client.on('message', message =>{
         .addField("- Report Time :", message.createdAt.toLocaleString(),true)
         .addField("- Reason :", reason);
     
-        let reportschannel = message.guild.channels.find(`name`, "reports");
-        if(!reportschannel) return message.channel.send("You should to make `reports` channel.");
+        let reportschannel = message.guild.channels.find(`name`, "report");
+        if(!reportschannel) return message.channel.send("525374130099453955");
     
     
         message.delete().catch(O_o=>{});
@@ -1412,4 +1457,7 @@ m.sendMessage(args)
 
 
 
-client.login(process.env.BOT_TOKEN);
+
+
+
+client.login('NTI1MzU2NjkwMzQ2ODY4NzU4.Dv1ehg.REQsiNUKxVoO7NHQBWW50fWYwvc');
