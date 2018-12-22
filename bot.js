@@ -3,14 +3,6 @@ const client = new Discord.Client();
 
 
 
-client.on('message',function(message) {
-  if(!message.channel.guild) return undefined;
-  const swearWords = ["كس امك","انيك امك","قحبه","خنيث","ازغبك","انيكك","كس","منيوك","عرس","اعرسك","مص","مص زبي","جرار","ولد العاهره"];
-  if (swearWords.some(word => message.content.includes(word)) ) {
-    message.delete()
-    message.reply("ممنوع السب"); 
-  }
-});
 
 
 
